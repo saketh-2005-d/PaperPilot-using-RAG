@@ -1,0 +1,26 @@
+[Unit]
+Description=PDF Summary FastAPI backend
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=nowbind
+Group=nowbind
+WorkingDirectory=/home/nowbind/pdf-summary/backend
+EnvironmentFile=/home/nowbind/pdf-summary/backend/.env
+ExecStart=/home/nowbind/.local/bin/uv run uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGINT
+TimeoutStopSec=20
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/nowbind/pdf-summary/backend
+
+[Install]
+WantedBy=multi-user.target
