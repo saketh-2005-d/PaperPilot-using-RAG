@@ -85,7 +85,7 @@ flutter run
 
 The backend route is implemented. To enable the Flutter button:
 
-1. In Google Cloud Console, create an Android OAuth client for package `com.nihesh.pdfsummary` with the debug SHA-1 fingerprint of your build host.
+1. In Google Cloud Console, create an Android OAuth client for package `com.saketh.pdfsummary` with the debug SHA-1 fingerprint of your build host.
 2. Create a Web OAuth client in the same project; pass its client ID to `google_sign_in` as `serverClientId`.
 3. Add the Web client ID to `GOOGLE_OAUTH_CLIENT_IDS` in `backend/.env`.
 4. Send the resulting ID token to `POST /auth/google`.
